@@ -7,7 +7,7 @@
 C# Client for SonarQube 8+
 
 ## Features
-* [ ] api/authentication
+* [X] api/authentication
 * [ ] api/ce
 * [ ] api/components
 * [ ] api/duplications
