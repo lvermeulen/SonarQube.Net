@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7B6EADEC-4D55-4894-A8AE-14B68A09B0C5}"
+	ProjectSection(SolutionItems) = preProject
+		build\build.ps1 = build\build.ps1
+		build\test.ps1 = build\test.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CD852AF8-36E1-49C0-8890-B15C78D9626B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{820C4E4F-392D-4BFD-9552-8C97E932E7D9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SonarQube.Net", "src\SonarQube.Net\SonarQube.Net.csproj", "{D8E1FDEE-198B-482F-ACC3-7B47E27747FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SonarQube.Net.Tests", "test\SonarQube.Net.Tests\SonarQube.Net.Tests.csproj", "{9FA144B4-0FC9-4545-BEC7-5411E8DE9D15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8E1FDEE-198B-482F-ACC3-7B47E27747FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8E1FDEE-198B-482F-ACC3-7B47E27747FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8E1FDEE-198B-482F-ACC3-7B47E27747FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8E1FDEE-198B-482F-ACC3-7B47E27747FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FA144B4-0FC9-4545-BEC7-5411E8DE9D15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA144B4-0FC9-4545-BEC7-5411E8DE9D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA144B4-0FC9-4545-BEC7-5411E8DE9D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA144B4-0FC9-4545-BEC7-5411E8DE9D15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FA144B4-0FC9-4545-BEC7-5411E8DE9D15} = {CD852AF8-36E1-49C0-8890-B15C78D9626B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62CA356F-13F6-424D-93A4-A94F1F8005CC}
+	EndGlobalSection
+EndGlobal

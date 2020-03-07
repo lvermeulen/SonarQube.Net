@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net46;netstandard1.6</TargetFrameworks>
+    <Version>1.0.0</Version>
+    <Copyright>Copyright 2020 by Luk Vermeulen. All rights reserved.</Copyright>
+    <Authors>Luk Vermeulen</Authors>
+    <Company>Luk Vermeulen</Company>
+    <PackageIconUrl>https://i.imgur.com/OsDAzyV.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/lvermeulen/Bitbucket.Cloud.Net</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lvermeulen/Bitbucket.Cloud.Net</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/lvermeulen/Bitbucket.Cloud.Net/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>bitbucket cloud org</PackageTags>
+    <LangVersion>latest</LangVersion>
+    <Description>C# client for Bitbucket Cloud</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flurl.Http" Version="2.4.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Authentication\" />
+  </ItemGroup>
+
+</Project>
