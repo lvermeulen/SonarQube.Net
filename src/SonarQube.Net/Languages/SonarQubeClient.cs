@@ -11,6 +11,8 @@ namespace SonarQube.Net
 	{
 		private IFlurlRequest GetLanguagesUrl() => GetBaseUrl("/api/languages");
 
+		private IFlurlRequest GetLanguagesUrl(string path) => GetLanguagesUrl().AppendPathSegment(path);
+
 		public async Task<IEnumerable<Language>> GetLanguagesListAsync(int? ps = null, string q = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -19,8 +21,7 @@ namespace SonarQube.Net
 				[nameof(q)] = q
 			};
 
-			return await GetLanguagesUrl()
-				.AppendPathSegment("/list")
+			return await GetLanguagesUrl("list")
 				.SetQueryParams(queryParamValues)
 				.GetJsonFirstNodeAsync<IEnumerable<Language>>()
 				.ConfigureAwait(false);

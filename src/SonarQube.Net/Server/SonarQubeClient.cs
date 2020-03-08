@@ -8,10 +8,11 @@ namespace SonarQube.Net
 	{
 		private IFlurlRequest GetServerUrl() => GetBaseUrl("/api/server");
 
+		private IFlurlRequest GetServerUrl(string path) => GetServerUrl().AppendPathSegment(path);
+
 		public async Task<string> GetServerVersionAsync()
 		{
-			return await GetServerUrl()
-				.AppendPathSegment("/version")
+			return await GetServerUrl("version")
 				.GetStringAsync()
 				.ConfigureAwait(false);
 		}

@@ -11,18 +11,18 @@ namespace SonarQube.Net
 	{
 		private IFlurlRequest GetPluginsUrl() => GetBaseUrl("/api/plugins");
 
+		private IFlurlRequest GetPluginsUrl(string path) => GetPluginsUrl().AppendPathSegment(path);
+
 		public async Task<IEnumerable<AvailablePlugin>> GetAvailablePluginsAsync()
 		{
-			return await GetPluginsUrl()
-				.AppendPathSegment("/available")
+			return await GetPluginsUrl("available")
 				.GetJsonFirstNodeAsync<IEnumerable<AvailablePlugin>>()
 				.ConfigureAwait(false);
 		}
 
 		public async Task<bool> CancelAllPluginsAsync()
 		{
-			var response = await GetPluginsUrl()
-				.AppendPathSegment("/cancel_all")
+			var response = await GetPluginsUrl("cancel_all")
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
@@ -31,8 +31,7 @@ namespace SonarQube.Net
 
 		public async Task<bool> InstallPluginAsync(string key)
 		{
-			var response = await GetPluginsUrl()
-				.AppendPathSegment("/install")
+			var response = await GetPluginsUrl("install")
 				.SetQueryParam(nameof(key), key)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
@@ -42,8 +41,7 @@ namespace SonarQube.Net
 
 		public async Task<IEnumerable<InstalledPlugin>> GetInstalledPluginsAsync(string f = null)
 		{
-			return await GetPluginsUrl()
-				.AppendPathSegment("/installed")
+			return await GetPluginsUrl("installed")
 				.SetQueryParam(nameof(f), f)
 				.GetJsonFirstNodeAsync<IEnumerable<InstalledPlugin>>()
 				.ConfigureAwait(false);
@@ -51,16 +49,14 @@ namespace SonarQube.Net
 
 		public async Task<PendingPlugins> GetPendingPluginsAsync()
 		{
-			return await GetPluginsUrl()
-				.AppendPathSegment("/pending")
+			return await GetPluginsUrl("pending")
 				.GetJsonAsync<PendingPlugins>()
 				.ConfigureAwait(false);
 		}
 
 		public async Task<bool> UninstallPluginAsync(string key)
 		{
-			var response = await GetPluginsUrl()
-				.AppendPathSegment("/uninstall")
+			var response = await GetPluginsUrl("uninstall")
 				.SetQueryParam(nameof(key), key)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
@@ -70,8 +66,7 @@ namespace SonarQube.Net
 
 		public async Task<bool> UpdatePluginAsync(string key)
 		{
-			var response = await GetPluginsUrl()
-				.AppendPathSegment("/update")
+			var response = await GetPluginsUrl("update")
 				.SetQueryParam(nameof(key), key)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
@@ -81,8 +76,7 @@ namespace SonarQube.Net
 
 		public async Task<IEnumerable<UpdatedPlugin>> GetUpdatedPluginsAsync()
 		{
-			return await GetPluginsUrl()
-				.AppendPathSegment("/updates")
+			return await GetPluginsUrl("updates")
 				.GetJsonFirstNodeAsync<IEnumerable<UpdatedPlugin>>()
 				.ConfigureAwait(false);
 		}

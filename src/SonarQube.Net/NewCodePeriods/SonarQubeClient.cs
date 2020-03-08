@@ -11,10 +11,11 @@ namespace SonarQube.Net
 	{
 		private IFlurlRequest GetNewCodePeriodsUrl() => GetBaseUrl("/api/new_code_periods");
 
+		private IFlurlRequest GetNewCodePeriodsUrl(string path) => GetNewCodePeriodsUrl().AppendPathSegment(path);
+
 		public async Task<IEnumerable<NewCodePeriod>> GetNewCodePeriodsListAsync(string project)
 		{
-			return await GetNewCodePeriodsUrl()
-				.AppendPathSegment("/list")
+			return await GetNewCodePeriodsUrl("list")
 				.SetQueryParam(nameof(project), project)
 				.GetJsonFirstNodeAsync<IEnumerable<NewCodePeriod>>()
 				.ConfigureAwait(false);
@@ -30,8 +31,7 @@ namespace SonarQube.Net
 				[nameof(value)] = value
 			};
 
-			var response = await GetNewCodePeriodsUrl()
-				.AppendPathSegment("/set")
+			var response = await GetNewCodePeriodsUrl("set")
 				.SetQueryParams(queryParamValues)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
@@ -47,8 +47,7 @@ namespace SonarQube.Net
 				[nameof(project)] = project
 			};
 
-			return await GetNewCodePeriodsUrl()
-				.AppendPathSegment("/show")
+			return await GetNewCodePeriodsUrl("show")
 				.SetQueryParams(queryParamValues)
 				.GetJsonAsync<NewCodePeriod>()
 				.ConfigureAwait(false);
@@ -62,8 +61,7 @@ namespace SonarQube.Net
 				[nameof(project)] = project
 			};
 
-			var response = await GetNewCodePeriodsUrl()
-				.AppendPathSegment("/unset")
+			var response = await GetNewCodePeriodsUrl("unset")
 				.SetQueryParams(queryParamValues)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);

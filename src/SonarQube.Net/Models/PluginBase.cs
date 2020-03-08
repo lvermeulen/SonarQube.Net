@@ -1,6 +1,6 @@
 ﻿namespace SonarQube.Net.Models
 {
-	public abstract class PluginBase : KeyName
+	public abstract class PluginBase : KeyedName
 	{
 		public string Category { get; set; }
 		public string Description { get; set; }

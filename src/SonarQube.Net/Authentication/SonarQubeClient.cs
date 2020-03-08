@@ -10,6 +10,8 @@ namespace SonarQube.Net
 	{
 		private IFlurlRequest GetAuthenticationUrl() => GetBaseUrl("/api/authentication");
 
+		private IFlurlRequest GetAuthenticationUrl(string path) => GetAuthenticationUrl().AppendPathSegment(path);
+
 		public async Task<bool> LoginAsync(string login, string password)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -18,8 +20,7 @@ namespace SonarQube.Net
 				[nameof(password)] = password
 			};
 
-			var response = await GetAuthenticationUrl()
-				.AppendPathSegment("/login")
+			var response = await GetAuthenticationUrl("login")
 				.SetQueryParams(queryParamValues)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
@@ -29,8 +30,7 @@ namespace SonarQube.Net
 
 		public async Task<bool> LogoutAsync()
 		{
-			var response = await GetAuthenticationUrl()
-				.AppendPathSegment("/logout")
+			var response = await GetAuthenticationUrl("logout")
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
@@ -39,8 +39,7 @@ namespace SonarQube.Net
 
 		public async Task<bool> ValidateCredentialsAsync()
 		{
-			return await GetAuthenticationUrl()
-				.AppendPathSegment("/validate")
+			return await GetAuthenticationUrl("validate")
 				.GetJsonFirstNodeAsync<bool>()
 				.ConfigureAwait(false);
 		}
