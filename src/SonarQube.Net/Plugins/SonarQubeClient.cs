@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Flurl.Http;
 using SonarQube.Net.Common;
@@ -24,7 +23,7 @@ namespace SonarQube.Net
 		{
 			var response = await GetPluginsUrl()
 				.AppendPathSegment("/cancel_all")
-				.PostAsync(new StringContent(""))
+				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
 			return await HandleResponseAsync(response).ConfigureAwait(false);
@@ -35,7 +34,7 @@ namespace SonarQube.Net
 			var response = await GetPluginsUrl()
 				.AppendPathSegment("/install")
 				.SetQueryParam(nameof(key), key)
-				.PostAsync(new StringContent(""))
+				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
 			return await HandleResponseAsync(response).ConfigureAwait(false);
@@ -63,7 +62,7 @@ namespace SonarQube.Net
 			var response = await GetPluginsUrl()
 				.AppendPathSegment("/uninstall")
 				.SetQueryParam(nameof(key), key)
-				.PostAsync(new StringContent(""))
+				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
 			return await HandleResponseAsync(response).ConfigureAwait(false);
@@ -74,7 +73,7 @@ namespace SonarQube.Net
 			var response = await GetPluginsUrl()
 				.AppendPathSegment("/update")
 				.SetQueryParam(nameof(key), key)
-				.PostAsync(new StringContent(""))
+				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
 			return await HandleResponseAsync(response).ConfigureAwait(false);

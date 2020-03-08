@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Flurl.Http;
 using SonarQube.Net.Common;
-using SonarQube.Net.Models;
 
 // ReSharper disable once CheckNamespace
 namespace SonarQube.Net
@@ -23,7 +21,7 @@ namespace SonarQube.Net
 			var response = await GetAuthenticationUrl()
 				.AppendPathSegment("/login")
 				.SetQueryParams(queryParamValues)
-				.PostAsync(new StringContent(""))
+				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
 			return await HandleResponseAsync(response).ConfigureAwait(false);
@@ -33,7 +31,7 @@ namespace SonarQube.Net
 		{
 			var response = await GetAuthenticationUrl()
 				.AppendPathSegment("/logout")
-				.PostAsync(new StringContent(""))
+				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
 			return await HandleResponseAsync(response).ConfigureAwait(false);

@@ -16,7 +16,7 @@ C# Client for SonarQube 8+
 * [X] api/languages
 * [ ] api/measures
 * [ ] api/metrics
-* [ ] api/new_code_periods
+* [X] api/new_code_periods
 * [ ] api/notifications
 * [ ] api/permissions
 * [X] api/plugins
@@ -30,7 +30,7 @@ C# Client for SonarQube 8+
 * [ ] api/qualitygates
 * [ ] api/qualityprofiles
 * [ ] api/rules
-* [ ] api/server
+* [X] api/server
 * [ ] api/settings
 * [ ] api/sources
 * [ ] api/system

@@ -6,14 +6,14 @@ using Newtonsoft.Json.Linq;
 
 namespace SonarQube.Net.Common.Converters
 {
-	public abstract class JsonEnumConverter<TEnum> : JsonConverter
+	public abstract class JsonEnumConverter<TEnum> : JsonConverter, IStringConverter<TEnum>
 		where TEnum : struct, IConvertible
 	{
-		protected abstract Dictionary<TEnum, string> Map { get; }
+		public abstract Dictionary<TEnum, string> Map { get; }
 
-		protected abstract string Description { get; }
+		public abstract string Description { get; }
 
-		protected virtual string ConvertToString(TEnum value)
+		public virtual string ConvertToString(TEnum value)
 		{
 			if (!Map.TryGetValue(value, out string result))
 			{
@@ -23,7 +23,7 @@ namespace SonarQube.Net.Common.Converters
 			return result;
 		}
 
-		protected virtual TEnum ConvertFromString(string s)
+		public virtual TEnum ConvertFromString(string s)
 		{
 			var pair = Map.FirstOrDefault(kvp => kvp.Value.Equals(s, StringComparison.OrdinalIgnoreCase));
 			// ReSharper disable once SuspiciousTypeConversion.Global

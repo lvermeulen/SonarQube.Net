@@ -15,6 +15,7 @@ namespace SonarQube.Net
 	public partial class SonarQubeClient
 	{
 		private static readonly ISerializer s_serializer = new NewtonsoftJsonSerializer(new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+		private static readonly HttpContent s_emptyHttpContent = null;
 
 		private readonly Url _url;
 		private readonly AuthenticationMethod _auth;
