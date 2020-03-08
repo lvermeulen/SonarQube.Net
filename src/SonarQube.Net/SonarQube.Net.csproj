@@ -18,6 +18,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+      <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+          <_Parameter1>SonarQube.Net.Tests</_Parameter1>
+      </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="2.4.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />

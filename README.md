@@ -26,7 +26,7 @@ C# Client for SonarQube 8+
 * [ ] api/project_links
 * [ ] api/project_pull_requests
 * [ ] api/project_tags
-* [ ] api/projects
+* [X] api/projects
 * [ ] api/qualitygates
 * [ ] api/qualityprofiles
 * [ ] api/rules

@@ -22,8 +22,8 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(component)] = component,
-				[nameof(maxExecutedAt)] = maxExecutedAt,
-				[nameof(minSubmittedAt)] = minSubmittedAt,
+				[nameof(maxExecutedAt)] = DateTimeToStringConverter.ToString(maxExecutedAt),
+				[nameof(minSubmittedAt)] = DateTimeToStringConverter.ToString(minSubmittedAt),
 				[nameof(onlyCurrents)] = onlyCurrents,
 				[nameof(ps)] = ps,
 				[nameof(q)] = q,
