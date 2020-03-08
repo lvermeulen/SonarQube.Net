@@ -1,7 +1,7 @@
 ![Icon](https://i.imgur.com/pN7lu6J.png)
 # SonarQube.Net 
 [![Build status](https://ci.appveyor.com/api/projects/status/kguoju5ujuyhp78x?svg=true)](https://ci.appveyor.com/project/lvermeulen/sonarqube-net)
- [![license](https://img.shields.io/github/license/lvermeulen/SonarQube.Net.svg?maxAge=2592000)](https://github.com/lvermeulen/SonarQube.Net/blob/master/LICENSE) [![NuGet](https://img.shields.io/nuget/v/SonarQube.Net.svg?maxAge=2592000)](https://www.nuget.org/packages/SonarQube.Net/) 
+ [![license](https://img.shields.io/github/license/lvermeulen/SonarQube.Net.svg?maxAge=2592000)](https://github.com/lvermeulen/SonarQube.Net/blob/master/LICENSE) [![NuGet](https://img.shields.io/nuget/vpre/SonarQube.Net.svg?maxAge=2592000)](https://www.nuget.org/packages/SonarQube.Net/) 
  ![](https://img.shields.io/badge/.net-4.6-yellowgreen.svg) ![](https://img.shields.io/badge/netstandard-1.6-yellowgreen.svg)
 
 C# Client for SonarQube 8+
