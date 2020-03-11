@@ -18,7 +18,7 @@ C# Client for SonarQube 8+
 * [X] api/metrics
 * [X] api/new_code_periods
 * [X] api/notifications
-* [ ] api/permissions
+* [X] api/permissions
 * [X] api/plugins
 * [ ] api/project_analyses
 * [ ] api/project_badges

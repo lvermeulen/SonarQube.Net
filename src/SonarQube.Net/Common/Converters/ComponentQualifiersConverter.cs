@@ -9,6 +9,10 @@ namespace SonarQube.Net.Common.Converters
 
 		public static string ToString(ComponentQualifiers value) => Instance.ConvertToString(value);
 
+		public static string ToString(ComponentQualifiers? value) => value.HasValue
+			? ToString(value.Value)
+			: null;
+
 		public override Dictionary<ComponentQualifiers, string> Map { get; } = new Dictionary<ComponentQualifiers, string>
 		{
 			[ComponentQualifiers.Brc] = "BRC",
