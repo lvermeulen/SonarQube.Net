@@ -10,7 +10,7 @@ C# Client for SonarQube 8+
 * [X] api/authentication
 * [X] api/ce
 * [X] api/components
-* [ ] api/duplications
+* [X] api/duplications
 * [X] api/favorites
 * [X] api/issues
 * [X] api/languages
