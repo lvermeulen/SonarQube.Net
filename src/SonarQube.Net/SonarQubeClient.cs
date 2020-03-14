@@ -7,6 +7,7 @@ using Flurl.Http;
 using Flurl.Http.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using SonarQube.Net.Common;
 using SonarQube.Net.Common.Authentication;
 using SonarQube.Net.Common.Models;
 
@@ -60,6 +61,24 @@ namespace SonarQube.Net
 				: JsonConvert.DeserializeObject<TResult>(content);
 		}
 
+		private async Task<TResult> ReadResponseContentFirstNodeAsync<TResult>(HttpResponseMessage responseMessage, int index = 0)
+		{
+			string content = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+			var tokens = content.GetJsonTokens();
+			var jproperty = tokens.GetJsonPropertyByIndex(index);
+
+			return jproperty.Value.ToObject<TResult>();
+		}
+
+		private async Task<TResult> ReadResponseContentNamedNodeAsync<TResult>(HttpResponseMessage responseMessage, string nodeName)
+		{
+			string content = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+			var tokens = content.GetJsonTokens();
+			var jproperty = tokens.GetJsonPropertyByName(nodeName);
+
+			return jproperty.Value.ToObject<TResult>();
+		}
+
 		private async Task<bool> ReadResponseContentAsync(HttpResponseMessage responseMessage)
 		{
 			string content = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -82,6 +101,18 @@ namespace SonarQube.Net
 		{
 			await HandleErrorsAsync(responseMessage).ConfigureAwait(false);
 			return await ReadResponseContentAsync(responseMessage, contentHandler).ConfigureAwait(false);
+		}
+
+		private async Task<TResult> HandleResponseFirstNodeAsync<TResult>(HttpResponseMessage responseMessage)
+		{
+			await HandleErrorsAsync(responseMessage).ConfigureAwait(false);
+			return await ReadResponseContentFirstNodeAsync<TResult>(responseMessage).ConfigureAwait(false);
+		}
+
+		private async Task<TResult> HandleResponseNamedNodeAsync<TResult>(HttpResponseMessage responseMessage, string nodeName)
+		{
+			await HandleErrorsAsync(responseMessage).ConfigureAwait(false);
+			return await ReadResponseContentNamedNodeAsync<TResult>(responseMessage, nodeName).ConfigureAwait(false);
 		}
 
 		private async Task<bool> HandleResponseAsync(HttpResponseMessage responseMessage)

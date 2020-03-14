@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Flurl.Http;
-using SonarQube.Net.Common;
 using SonarQube.Net.Common.Converters;
 using SonarQube.Net.Models;
 

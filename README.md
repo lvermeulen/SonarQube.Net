@@ -12,7 +12,7 @@ C# Client for SonarQube 8+
 * [X] api/components
 * [ ] api/duplications
 * [X] api/favorites
-* [ ] api/issues
+* [X] api/issues
 * [X] api/languages
 * [ ] api/measures
 * [X] api/metrics
