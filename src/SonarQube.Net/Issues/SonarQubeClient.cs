@@ -64,7 +64,7 @@ namespace SonarQube.Net
 		}
 
 		public async Task<IssueBulkChange> BulkChangeIssuesAsync(string[] addTags = null, string assign = null, string comment = null, string doTransition = null,
-			string[] issues = null, string[] removeTags = null, bool? sendNotifications = null, IssueSeverities? setSeverity = null, IssueTypes? type = null)
+			string[] issues = null, string[] removeTags = null, bool? sendNotifications = null, Severities? setSeverity = null, IssueTypes? type = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
@@ -139,9 +139,9 @@ namespace SonarQube.Net
 
 		public async Task<IssuesList> SearchIssuesAsync(AvailableIssueFields[] additionalFields = null, bool? asc = null, bool? assigned = null, string[] assignees = null,
 			string[] author = null, string[] componentKeys = null, DateTime? createdAfter = null, DateTime? createdAt = null, DateTime? createdBefore = null, string createdInLast = null,
-			string[] cwe = null, IssueFacets[] facets = null, string[] issues = null, string[] languages = null, bool? onComponentsOnly = null, OwaspTop10Types[] owaspTop10 = null,
+			string[] cwe = null, Facets[] facets = null, string[] issues = null, string[] languages = null, bool? onComponentsOnly = null, OwaspTop10Types[] owaspTop10 = null,
 			int? p = null, int? ps = null, IssueResolutions[] resolutions = null, bool? resolved = null, string[] rules = null, IssueSortFields[] s = null,
-			SansTop25Types[] sansTop25 = null, IssueSeverities[] severities = null, bool? sinceLeakPeriod = null, SonarSourceSecurityTypes[] sonarSourceSecurity = null,
+			SansTop25Types[] sansTop25 = null, Severities[] severities = null, bool? sinceLeakPeriod = null, SonarSourceSecurityTypes[] sonarSourceSecurity = null,
 			IssueStatuses[] statuses = null, string[] tags = null, IssueTypes[] types = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
@@ -157,7 +157,7 @@ namespace SonarQube.Net
 				[nameof(createdBefore)] = DateTimeToStringConverter.ToString(createdBefore),
 				[nameof(createdInLast)] = createdInLast,
 				[nameof(cwe)] = cwe == null ? null : string.Join(",", cwe),
-				[nameof(facets)] = facets == null ? null : string.Join(",", facets.Select(IssueFacetsConverter.ToString)),
+				[nameof(facets)] = facets == null ? null : string.Join(",", facets.Select(FacetsConverter.ToString)),
 				[nameof(issues)] = issues == null ? null : string.Join(",", issues),
 				[nameof(languages)] = languages == null ? null : string.Join(",", languages),
 				[nameof(onComponentsOnly)] = onComponentsOnly,
@@ -169,7 +169,7 @@ namespace SonarQube.Net
 				[nameof(rules)] = rules,
 				[nameof(s)] = s,
 				[nameof(sansTop25)] = sansTop25 == null ? null : string.Join(",", sansTop25.Select(SansTop25TypesConverter.ToString)),
-				[nameof(severities)] = severities == null ? null : string.Join(",", severities.Select(IssueSeveritiesConverter.ToString)),
+				[nameof(severities)] = severities == null ? null : string.Join(",", severities.Select(SeveritiesConverter.ToString)),
 				[nameof(sinceLeakPeriod)] = sinceLeakPeriod,
 				[nameof(sonarSourceSecurity)] = sonarSourceSecurity == null ? null : string.Join(",", sonarSourceSecurity.Select(SonarSourceSecurityTypesConverter.ToString)),
 				[nameof(statuses)] = statuses == null ? null : string.Join(",", statuses.Select(IssueStatusesConverter.ToString)),
@@ -183,12 +183,12 @@ namespace SonarQube.Net
 				.ConfigureAwait(false);
 		}
 
-		public async Task<Issue> SetIssueSeverityAsync(string issue, IssueSeverities severity)
+		public async Task<Issue> SetIssueSeverityAsync(string issue, Severities severity)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(issue)] = issue,
-				[nameof(severity)] = IssueSeveritiesConverter.ToString(severity)
+				[nameof(severity)] = SeveritiesConverter.ToString(severity)
 			};
 
 			var response = await GetIssuesUrl("set_severity")

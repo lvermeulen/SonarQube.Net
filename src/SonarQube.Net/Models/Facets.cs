@@ -1,6 +1,6 @@
 ﻿namespace SonarQube.Net.Models
 {
-	public enum IssueFacets
+	public enum Facets
 	{
 		Projects,
 		ModuleUuids,
@@ -21,6 +21,9 @@
 		SansTop25,
 		Cwe,
 		CreatedAt,
-		SonarsourceSecurity
+		SonarsourceSecurity,
+		Repositories,
+		ActiveSeverities,
+		True
 	}
 }

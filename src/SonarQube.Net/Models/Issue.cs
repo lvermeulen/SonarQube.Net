@@ -18,8 +18,8 @@ namespace SonarQube.Net.Models
 		[JsonConverter(typeof(IssueResolutionsConverter))]
 		public IssueResolutions Resolution { get; set; }
 
-		[JsonConverter(typeof(IssueSeveritiesConverter))]
-		public IssueSeverities Severity { get; set; }
+		[JsonConverter(typeof(SeveritiesConverter))]
+		public Severities Severity { get; set; }
 
 		public string Message { get; set; }
 		public int Line { get; set; }

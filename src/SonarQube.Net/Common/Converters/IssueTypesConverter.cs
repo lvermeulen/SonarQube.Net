@@ -17,7 +17,8 @@ namespace SonarQube.Net.Common.Converters
 		{
 			[IssueTypes.CodeSmell] = "CODE_SMELL",
 			[IssueTypes.Bug] = "BUG",
-			[IssueTypes.Vulnerability] = "VULNERABILITY"
+			[IssueTypes.Vulnerability] = "VULNERABILITY",
+			[IssueTypes.SecurityHotspot] = "SECURITY_HOTSPOT"
 		};
 
 		public override string Description { get; } = "issue type";

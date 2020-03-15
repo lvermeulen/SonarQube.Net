@@ -29,7 +29,7 @@ namespace SonarQube.Net.Tests
 		}
 
 		[Theory]
-		[InlineData("Test")]
+		[InlineData("HelloWorld")]
 		public async Task GetCeComponentAsync(string component)
 		{
 			var result = await _client.GetCeComponentAsync(component).ConfigureAwait(false);

@@ -1,6 +1,6 @@
 ﻿namespace SonarQube.Net.Models
 {
-	public enum IssueSeverities
+	public enum Severities
 	{
 		Info,
 		Minor,

@@ -2,6 +2,9 @@
 {
 	public enum RuleStatuses
 	{
-		Ready
+		Beta,
+		Deprecated,
+		Ready,
+		Removed
 	}
 }

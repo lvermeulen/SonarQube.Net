@@ -7,7 +7,7 @@ namespace SonarQube.Net.Tests
 	public partial class SonarQubeClientShould
 	{
 		[Theory]
-		[InlineData("Test")]
+		[InlineData("HelloWorld")]
 		public async Task GetNewCodePeriodsListAsync(string project)
 		{
 			var result = await _client.GetNewCodePeriodsListAsync(project: project).ConfigureAwait(false);
@@ -15,7 +15,7 @@ namespace SonarQube.Net.Tests
 		}
 
 		[Theory]
-		[InlineData("Test")]
+		[InlineData("HelloWorld")]
 		public async Task ShowNewCodePeriodAsync(string project)
 		{
 			var result = await _client.ShowNewCodePeriodAsync(project: project).ConfigureAwait(false);

@@ -4,6 +4,7 @@
 	{
 		CodeSmell,
 		Bug,
-		Vulnerability
+		Vulnerability,
+		SecurityHotspot
 	}
 }
