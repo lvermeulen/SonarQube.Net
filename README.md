@@ -38,4 +38,4 @@ C# Client for SonarQube 8+
 * [ ] api/user_tokens
 * [ ] api/users
 * [ ] api/webhooks
-* [ ] api/webservices
+* [X] api/webservices
