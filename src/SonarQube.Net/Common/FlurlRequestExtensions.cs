@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Flurl.Http;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace SonarQube.Net.Common
@@ -46,6 +47,18 @@ namespace SonarQube.Net.Common
 		{
 			var jproperty = await request.GetJsonNodeAsync(0, cancellationToken, completionOption).ConfigureAwait(false);
 			return jproperty.Value.ToObject<T>();
+		}
+
+		public static async Task<T> GetJsonFirstNodeAsync<T, TJsonConverter>(this IFlurlRequest request, CancellationToken cancellationToken = default, HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
+			where TJsonConverter : JsonConverter, new()
+		{
+			var serializer = new JsonSerializer
+			{
+				Converters = { new TJsonConverter() }
+			};
+
+			var jproperty = await request.GetJsonNodeAsync(0, cancellationToken, completionOption).ConfigureAwait(false);
+			return jproperty.Value.ToObject<T>(serializer);
 		}
 
 		public static async Task<T> GetJsonNamedNodeAsync<T>(this IFlurlRequest request, string nodeName, CancellationToken cancellationToken = default, HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)

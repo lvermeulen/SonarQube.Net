@@ -32,7 +32,7 @@ C# Client for SonarQube 8+
 * [X] api/rules
 * [X] api/server
 * [X] api/settings
-* [ ] api/sources
+* [X] api/sources
 * [X] api/system
 * [ ] api/user_groups
 * [ ] api/user_tokens
