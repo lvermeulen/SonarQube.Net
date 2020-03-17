@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Threading.Tasks;
+using SonarQube.Net.Models;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
@@ -28,11 +29,17 @@ namespace SonarQube.Net.Tests
 			Assert.NotNull(result);
 		}
 
-		[Theory]
-		[InlineData("HelloWorld")]
-		public async Task GetCeComponentAsync(string component)
+		[Fact]
+		public async Task GetCeComponentAsync()
 		{
-			var result = await _client.GetCeComponentAsync(component).ConfigureAwait(false);
+			var results = await _client.SearchComponentsAsync(new[] { ComponentQualifiers.Trk }).ConfigureAwait(false);
+			var firstResult = results.FirstOrDefault();
+			if (firstResult == null)
+			{
+				return;
+			}
+
+			var result = await _client.GetCeComponentAsync(firstResult.Key).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 

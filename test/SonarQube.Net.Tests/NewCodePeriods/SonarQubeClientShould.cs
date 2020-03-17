@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -6,19 +7,31 @@ namespace SonarQube.Net.Tests
 {
 	public partial class SonarQubeClientShould
 	{
-		[Theory]
-		[InlineData("HelloWorld")]
-		public async Task GetNewCodePeriodsListAsync(string project)
+		[Fact]
+		public async Task GetNewCodePeriodsListAsync()
 		{
-			var result = await _client.GetNewCodePeriodsListAsync(project: project).ConfigureAwait(false);
+			var results = await _client.SearchProjectsAsync().ConfigureAwait(false);
+			var firstResult = results.FirstOrDefault();
+			if (firstResult == null)
+			{
+				return;
+			}
+
+			var result = await _client.GetNewCodePeriodsListAsync(firstResult.Key).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
-		[Theory]
-		[InlineData("HelloWorld")]
-		public async Task ShowNewCodePeriodAsync(string project)
+		[Fact]
+		public async Task ShowNewCodePeriodAsync()
 		{
-			var result = await _client.ShowNewCodePeriodAsync(project: project).ConfigureAwait(false);
+			var results = await _client.SearchProjectsAsync().ConfigureAwait(false);
+			var firstResult = results.FirstOrDefault();
+			if (firstResult == null)
+			{
+				return;
+			}
+
+			var result = await _client.ShowNewCodePeriodAsync(project: firstResult.Key).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 	}
