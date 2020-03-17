@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Flurl.Http;
@@ -56,14 +57,14 @@ namespace SonarQube.Net
 				.ConfigureAwait(false);
 		}
 
-		public async Task<MeasuresHistory> SearchMeasuresHistoryAsync(string component, string[] metrics, string from = null, string to = null, int? p = null, int? ps = null)
+		public async Task<MeasuresHistory> SearchMeasuresHistoryAsync(string component, string[] metrics, DateTime? from = null, DateTime? to = null, int? p = null, int? ps = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(component)] = component,
 				[nameof(metrics)] = string.Join(",", metrics),
-				[nameof(from)] = from,
-				[nameof(to)] = to,
+				[nameof(from)] = DateTimeToStringConverter.ToString(from),
+				[nameof(to)] = DateTimeToStringConverter.ToString(to),
 				[nameof(p)] = p,
 				[nameof(ps)] = ps,
 			};

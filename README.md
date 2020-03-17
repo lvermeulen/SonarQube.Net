@@ -20,7 +20,7 @@ C# Client for SonarQube 8+
 * [X] api/notifications
 * [X] api/permissions
 * [X] api/plugins
-* [ ] api/project_analyses
+* [X] api/project_analyses
 * [ ] api/project_badges
 * [ ] api/project_branches
 * [ ] api/project_links
