@@ -9,6 +9,6 @@ namespace SonarQube.Net.Models
 		public EventCategories Category { get; set; }
 
 		public string Description { get; set; }
-		public QualityGate QualityGate { get; set; }
+		public QualityGateEvent QualityGate { get; set; }
 	}
 }

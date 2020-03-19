@@ -2,11 +2,11 @@
 
 namespace SonarQube.Net.Models
 {
-	public class QualityGate
+	public class QualityGateRef
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public bool? IsDefault { get; set; }
+		public IEnumerable<QualityGateConditionRef> Conditions { get; set; }
 		public bool? IsBuiltIn { get; set; }
 		public IDictionary<string, bool?> Actions { get; set; }
 	}
