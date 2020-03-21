@@ -30,7 +30,7 @@ namespace SonarQube.Net
 
 			string body = await call.Response.Content.ReadAsStringAsync().ConfigureAwait(false);
 			var sonarQubeErrors = call.FlurlRequest.Settings.JsonSerializer.Deserialize<SonarQubeErrors>(body);
-			var exception = new AggregateException(sonarQubeErrors.Errors.Select(x => new FlurlHttpException(call, x.Msg, new InvalidOperationException(x.Msg))));
+			var exception = new InvalidOperationException(sonarQubeErrors.Errors.FirstOrDefault()?.Msg);
 
 			throw exception;
 		};
