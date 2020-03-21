@@ -1,11 +1,7 @@
 ﻿namespace SonarQube.Net.Models
 {
-	public class UserGroup
+	public class UserGroup : UserGroupBase
 	{
-		public int Id { get; set; }
-		public string Name { get; set; }
-		public string Description { get; set; }
-		public bool Selected { get; set; }
-		public bool Default { get; set; }
+		public int? MembersCount { get; set; }
 	}
 }

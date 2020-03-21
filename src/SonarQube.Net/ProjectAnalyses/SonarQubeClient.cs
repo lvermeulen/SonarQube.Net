@@ -21,7 +21,7 @@ namespace SonarQube.Net
 			{
 				[nameof(analysis)] = analysis,
 				[nameof(category)] = EventCategoriesConverter.ToString(category),
-				[nameof(name)] = name 
+				[nameof(name)] = name
 			};
 
 			var response = await GetProjectAnalysesUrl("create_event")

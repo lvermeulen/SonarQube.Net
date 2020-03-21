@@ -61,7 +61,7 @@ namespace SonarQube.Net
 			return await HandleResponseFirstNodeAsync<User>(response).ConfigureAwait(false);
 		}
 
-		public async Task<IEnumerable<UserGroup>> GetUserGroupsAsync(string login, int? p = null, int? ps = null, string q = null, SelectedTypes? selected = null)
+		public async Task<IEnumerable<SelectedUserGroup>> GetUserGroupsAsync(string login, int? p = null, int? ps = null, string q = null, SelectedTypes? selected = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
@@ -74,7 +74,7 @@ namespace SonarQube.Net
 
 			return await GetUsersUrl("groups")
 				.SetQueryParams(queryParamValues)
-				.GetJsonNamedNodeAsync<IEnumerable<UserGroup>>("groups")
+				.GetJsonNamedNodeAsync<IEnumerable<SelectedUserGroup>>("groups")
 				.ConfigureAwait(false);
 		}
 
