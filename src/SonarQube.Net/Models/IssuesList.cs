@@ -9,6 +9,6 @@ namespace SonarQube.Net.Models
 		public IEnumerable<Issue> Issues { get; set; }
 		public IEnumerable<IssueComponent> Components { get; set; }
 		public IEnumerable<IssueRule> Rules { get; set; }
-		public IEnumerable<User> Users { get; set; }
+		public IEnumerable<UserRef> Users { get; set; }
 	}
 }

@@ -145,7 +145,7 @@ namespace SonarQube.Net
 			return await HandleResponseAsync(response).ConfigureAwait(false);
 		}
 
-		public async Task<PermissionTemplateReference> CreatePermissionTemplateAsync(string name, string description = null, string projectKeyPattern = null)
+		public async Task<PermissionTemplateRef> CreatePermissionTemplateAsync(string name, string description = null, string projectKeyPattern = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
@@ -159,7 +159,7 @@ namespace SonarQube.Net
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
 
-			return await HandleResponseAsync<PermissionTemplateReference>(response).ConfigureAwait(false);
+			return await HandleResponseAsync<PermissionTemplateRef>(response).ConfigureAwait(false);
 		}
 
 		public async Task<bool> DeletePermissionTemplateAsync(string templateId = null, string templateName = null)

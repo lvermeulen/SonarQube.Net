@@ -6,6 +6,6 @@ namespace SonarQube.Net.Models
 	{
 		public IEnumerable<PermissionTemplate> PermissionTemplates { get; set; }
 		public IEnumerable<DefaultPermissionTemplate> DefaultTemplates { get; set; }
-		public IEnumerable<PermissionReference> Permissions { get; set; }
+		public IEnumerable<PermissionRef> Permissions { get; set; }
 	}
 }
