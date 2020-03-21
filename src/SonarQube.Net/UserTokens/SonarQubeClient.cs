@@ -47,7 +47,7 @@ namespace SonarQube.Net
 		public async Task<UserTokensList> SearchUserTokensAsync(string login = null)
 		{
 			return await GetUserTokensUrl("search")
-				.SetQueryParams(nameof(login), login)
+				.SetQueryParam(nameof(login), login)
 				.GetJsonAsync<UserTokensList>()
 				.ConfigureAwait(false);
 		}
