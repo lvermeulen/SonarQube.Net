@@ -9,7 +9,7 @@ namespace SonarQube.Net.Tests
         [Fact]
         public async Task SearchUserTokensAsync()
         {
-            var result = await _client.SearchUserTokensAsync("luk.vermeulen").ConfigureAwait(false);
+            var result = await _client.SearchUserTokensAsync().ConfigureAwait(false);
             Assert.NotNull(result);
         }
     }
