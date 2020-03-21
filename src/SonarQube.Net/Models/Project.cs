@@ -8,5 +8,4 @@ namespace SonarQube.Net.Models
 		[JsonConverter(typeof(ProjectQualifiersConverter))]
 		public ProjectQualifiers Qualifier { get; set; }
 	}
-
 }

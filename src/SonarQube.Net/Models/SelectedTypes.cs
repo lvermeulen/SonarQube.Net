@@ -1,6 +1,6 @@
 ﻿namespace SonarQube.Net.Models
 {
-	public enum SelectedQualityGateTypes
+	public enum SelectedTypes
 	{
 		All,
 		Deselected,

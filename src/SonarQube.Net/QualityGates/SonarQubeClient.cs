@@ -170,7 +170,7 @@ namespace SonarQube.Net
 			return await HandleResponseAsync(response).ConfigureAwait(false);
 		}
 
-		public async Task<IEnumerable<SelectedQualityGate>> SearchQualityGatesAsync(int gateId, string organization = null, int? page = null, int? pageSize = null, string query = null, SelectedQualityGateTypes? selected = null)
+		public async Task<IEnumerable<SelectedQualityGate>> SearchQualityGatesAsync(int gateId, string organization = null, int? page = null, int? pageSize = null, string query = null, SelectedTypes? selected = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
@@ -179,7 +179,7 @@ namespace SonarQube.Net
 				[nameof(page)] = page,
 				[nameof(pageSize)] = pageSize,
 				[nameof(query)] = query,
-				[nameof(selected)] = SelectedQualityGateTypesConverter.ToString(selected)
+				[nameof(selected)] = SelectedTypesConverter.ToString(selected)
 			};
 
 			return await GetQualityGatesUrl("search")

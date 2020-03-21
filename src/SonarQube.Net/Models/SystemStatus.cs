@@ -11,5 +11,4 @@ namespace SonarQube.Net.Models
 		[JsonConverter(typeof(SystemStatusesConverter))]
 		public SystemStatuses Status { get; set; }
 	}
-
 }

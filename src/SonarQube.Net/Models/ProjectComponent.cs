@@ -17,5 +17,4 @@ namespace SonarQube.Net.Models
 		public DateTime? LastAnalysisDate { get; set; }
 		public string Revision { get; set; }
 	}
-
 }
