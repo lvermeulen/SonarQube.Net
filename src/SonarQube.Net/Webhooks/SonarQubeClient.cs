@@ -23,7 +23,7 @@ namespace SonarQube.Net
 				[nameof(secret)] = secret
 			};
 
-			var response = await GetPluginsUrl("create")
+			var response = await GetWebhooksUrl("create")
 				.SetQueryParams(queryParamValues)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
@@ -33,7 +33,7 @@ namespace SonarQube.Net
 
 		public async Task<bool> DeleteWebhookAsync(string webhook)
 		{
-			var response = await GetPluginsUrl("delete")
+			var response = await GetWebhooksUrl("delete")
 				.SetQueryParams(nameof(webhook), webhook)
 				.PostAsync(s_emptyHttpContent)
 				.ConfigureAwait(false);
