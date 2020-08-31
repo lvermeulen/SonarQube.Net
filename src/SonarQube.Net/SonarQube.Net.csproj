@@ -8,12 +8,12 @@
     <Company>Luk Vermeulen</Company>
     <PackageIconUrl>https://i.imgur.com/OsDAzyV.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/lvermeulen/Bitbucket.Cloud.Net</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/lvermeulen/Bitbucket.Cloud.Net</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/lvermeulen/Bitbucket.Cloud.Net/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>bitbucket cloud org</PackageTags>
+    <RepositoryUrl>https://github.com/lvermeulen/SonarQube.Net</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lvermeulen/SonarQube.Net</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/lvermeulen/SonarQube.Net/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>sonarqube</PackageTags>
     <LangVersion>latest</LangVersion>
-    <Description>C# client for Bitbucket Cloud</Description>
+    <Description>C# client for SonarQube API</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
