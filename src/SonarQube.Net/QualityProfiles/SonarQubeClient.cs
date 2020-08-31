@@ -25,7 +25,7 @@ namespace SonarQube.Net
 				[nameof(key)] = key,
 				[nameof(rule)] = rule,
 				["params"] = parameters, // XXX
-				[nameof(reset)] = reset,
+				[nameof(reset)] = BooleanConverter.ToString(reset),
 				[nameof(severity)] = SeveritiesConverter.ToString(severity)
 			};
 
@@ -46,13 +46,13 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(targetKey)] = targetKey,
-				[nameof(activation)] = activation,
+				[nameof(activation)] = BooleanConverter.ToString(activation),
 				["active_severities"] = activeSeverities,
-				[nameof(asc)] = asc,
+				[nameof(asc)] = BooleanConverter.ToString(asc),
 				["available_since"] = DateTimeToStringConverter.ToString(availableSince, "yyyy-MM-dd"),
 				[nameof(cwe)] = cwe == null ? null : string.Join(",", cwe),
 				[nameof(inheritance)] = inheritance == null ? null : string.Join(",", inheritance.Select(RuleInheritanceTypesConverter.ToString)),
-				["is_template"] = isTemplate,
+				["is_template"] = BooleanConverter.ToString(isTemplate),
 				[nameof(languages)] = languages == null ? null : string.Join(",", languages),
 				[nameof(owaspTop10)] = owaspTop10 == null ? null : string.Join(",", owaspTop10.Select(OwaspTop10TypesConverter.ToString)),
 				[nameof(q)] = q,
@@ -199,13 +199,13 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(targetKey)] = targetKey,
-				[nameof(activation)] = activation,
+				[nameof(activation)] = BooleanConverter.ToString(activation),
 				["active_severities"] = activeSeverities,
-				[nameof(asc)] = asc,
+				[nameof(asc)] = BooleanConverter.ToString(asc),
 				["available_since"] = DateTimeToStringConverter.ToString(availableSince, "yyyy-MM-dd"),
 				[nameof(cwe)] = cwe == null ? null : string.Join(",", cwe),
 				[nameof(inheritance)] = inheritance == null ? null : string.Join(",", inheritance.Select(RuleInheritanceTypesConverter.ToString)),
-				["is_template"] = isTemplate,
+				["is_template"] = BooleanConverter.ToString(isTemplate),
 				[nameof(languages)] = languages == null ? null : string.Join(",", languages),
 				[nameof(owaspTop10)] = owaspTop10 == null ? null : string.Join(",", owaspTop10.Select(OwaspTop10TypesConverter.ToString)),
 				[nameof(q)] = q,
@@ -353,7 +353,7 @@ namespace SonarQube.Net
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
-				[nameof(defaults)] = defaults,
+				[nameof(defaults)] = BooleanConverter.ToString(defaults),
 				[nameof(language)] = language,
 				[nameof(project)] = project,
 				[nameof(qualityProfile)] = qualityProfile

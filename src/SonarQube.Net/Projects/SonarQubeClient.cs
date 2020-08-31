@@ -67,7 +67,7 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(analyzedBefore)] = DateTimeToStringConverter.ToString(analyzedBefore),
-				[nameof(onProvisionedOnly)] = onProvisionedOnly,
+				[nameof(onProvisionedOnly)] = BooleanConverter.ToString(onProvisionedOnly),
 				[nameof(p)] = p,
 				[nameof(projects)] = projects == null ? null : string.Join(",", projects),
 				[nameof(ps)] = ps,

@@ -25,7 +25,7 @@ namespace SonarQube.Net
 				["markdown_description"] = markdownDescription,
 				[nameof(name)] = name,
 				["params"] = parameters?.Select(x => $"{x.Key}={x.Value}"),
-				["prevent_reactivation"] = preventReactivation,
+				["prevent_reactivation"] = BooleanConverter.ToString(preventReactivation),
 				[nameof(severity)] = SeveritiesConverter.ToString(severity),
 				[nameof(status)] = RuleStatusesConverter.ToString(status),
 				["template_key"] = templateKey,
@@ -72,16 +72,16 @@ namespace SonarQube.Net
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
-				[nameof(activation)] = activation,
+				[nameof(activation)] = BooleanConverter.ToString(activation),
 				["active_severities"] = activeSeverities == null ? null : string.Join(",", activeSeverities.Select(SeveritiesConverter.ToString)),
-				[nameof(asc)] = asc,
+				[nameof(asc)] = BooleanConverter.ToString(asc),
 				["available_since"] = DateTimeToStringConverter.ToString(availableSince, "yyyy-MM-dd"),
 				[nameof(cwe)] = cwe == null ? null : string.Join(",", cwe),
 				[nameof(f)] = f == null ? null : string.Join(",", f.Select(AvailableRuleFieldsConverter.ToString)),
 				[nameof(facets)] = facets == null ? null : string.Join(",", facets.Select(FacetsConverter.ToString)),
-				["include_external"] = includeExternal,
+				["include_external"] = BooleanConverter.ToString(includeExternal),
 				[nameof(inheritance)] = inheritance == null ? null : string.Join(",", string.Join(",", inheritance.Select(RuleInheritanceTypesConverter.ToString))),
-				["is_template"] = isTemplate,
+				["is_template"] = BooleanConverter.ToString(isTemplate),
 				[nameof(languages)] = languages == null ? null : string.Join(",", languages),
 				[nameof(owaspTop10)] = owaspTop10 == null ? null : string.Join(",", owaspTop10.Select(OwaspTop10TypesConverter.ToString)),
 				[nameof(p)] = p,
@@ -111,7 +111,7 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(key)] = key,
-				[nameof(actives)] = actives
+				[nameof(actives)] = BooleanConverter.ToString(actives)
 			};
 
 			return await GetRulesUrl("show")
