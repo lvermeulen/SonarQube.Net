@@ -38,7 +38,7 @@ namespace SonarQube.Net
 				[nameof(login)] = login,
 				[nameof(name)] = name,
 				[nameof(email)] = email,
-				[nameof(local)] = local,
+				[nameof(local)] = BooleanConverter.ToString(local),
 				[nameof(password)] = password,
 				[nameof(scmAccount)] = scmAccount
 			};

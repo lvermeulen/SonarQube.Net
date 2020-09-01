@@ -45,7 +45,7 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(component)] = component,
-				[nameof(asc)] = asc,
+				[nameof(asc)] = BooleanConverter.ToString(asc),
 				[nameof(p)] = p,
 				[nameof(ps)] = ps,
 				[nameof(q)] = q,

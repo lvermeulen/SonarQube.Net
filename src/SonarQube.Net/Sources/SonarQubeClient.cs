@@ -27,7 +27,7 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(key)] = key,
-				["commits_by_line"] = commitsByLine,
+				["commits_by_line"] = BooleanConverter.ToString(commitsByLine),
 				[nameof(from)] = from,
 				[nameof(to)] = to
 			};

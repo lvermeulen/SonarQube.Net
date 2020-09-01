@@ -74,7 +74,7 @@ namespace SonarQube.Net
 				["do_transition"] = doTransition,
 				[nameof(issues)] = issues == null ? null : string.Join(",", issues),
 				["remove_tags"] = removeTags,
-				[nameof(sendNotifications)] = sendNotifications,
+				[nameof(sendNotifications)] = BooleanConverter.ToString(sendNotifications),
 				["set_severity"] = setSeverity,
 				["set_type"] = type == null ? null : IssueTypesConverter.ToString(type)
 			};
@@ -147,8 +147,8 @@ namespace SonarQube.Net
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(additionalFields)] = additionalFields == null ? null : string.Join(",", additionalFields.Select(AvailableIssueFieldsConverter.ToString)),
-				[nameof(asc)] = asc,
-				[nameof(assigned)] = assigned,
+				[nameof(asc)] = BooleanConverter.ToString(asc),
+				[nameof(assigned)] = BooleanConverter.ToString(assigned),
 				[nameof(assignees)] = assignees == null ? null : string.Join(",", assignees),
 				[nameof(author)] = author,
 				[nameof(componentKeys)] = componentKeys == null ? null : string.Join(",", componentKeys),
@@ -165,12 +165,12 @@ namespace SonarQube.Net
 				[nameof(p)] = p,
 				[nameof(ps)] = ps,
 				[nameof(resolutions)] = resolutions == null ? null : string.Join(",", resolutions.Select(IssueResolutionsConverter.ToString)),
-				[nameof(resolved)] = resolved,
+				[nameof(resolved)] = BooleanConverter.ToString(resolved),
 				[nameof(rules)] = rules,
 				[nameof(s)] = s,
 				[nameof(sansTop25)] = sansTop25 == null ? null : string.Join(",", sansTop25.Select(SansTop25TypesConverter.ToString)),
 				[nameof(severities)] = severities == null ? null : string.Join(",", severities.Select(SeveritiesConverter.ToString)),
-				[nameof(sinceLeakPeriod)] = sinceLeakPeriod,
+				[nameof(sinceLeakPeriod)] = BooleanConverter.ToString(sinceLeakPeriod),
 				[nameof(sonarSourceSecurity)] = sonarSourceSecurity == null ? null : string.Join(",", sonarSourceSecurity.Select(SonarSourceSecurityTypesConverter.ToString)),
 				[nameof(statuses)] = statuses == null ? null : string.Join(",", statuses.Select(IssueStatusesConverter.ToString)),
 				[nameof(tags)] = tags,

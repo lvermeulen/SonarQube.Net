@@ -24,7 +24,7 @@ namespace SonarQube.Net
 				[nameof(component)] = component,
 				[nameof(maxExecutedAt)] = DateTimeToStringConverter.ToString(maxExecutedAt),
 				[nameof(minSubmittedAt)] = DateTimeToStringConverter.ToString(minSubmittedAt),
-				[nameof(onlyCurrents)] = onlyCurrents,
+				[nameof(onlyCurrents)] = BooleanConverter.ToString(onlyCurrents),
 				[nameof(ps)] = ps,
 				[nameof(q)] = q,
 				[nameof(status)] = status == null ? null : string.Join(",", status.Select(CeTaskStatusesConverter.ToString)),

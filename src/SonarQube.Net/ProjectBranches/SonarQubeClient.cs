@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Flurl.Http;
 using SonarQube.Net.Common;
+using SonarQube.Net.Common.Converters;
 using SonarQube.Net.Models;
 
 // ReSharper disable once CheckNamespace
@@ -59,7 +60,7 @@ namespace SonarQube.Net
 			{
 				[nameof(project)] = project,
 				[nameof(branch)] = branch,
-				[nameof(value)] = value
+				[nameof(value)] = BooleanConverter.ToString(value)
 			};
 
 			var response = await GetProjectBranchesUrl("set_automatic_deletion_protection")

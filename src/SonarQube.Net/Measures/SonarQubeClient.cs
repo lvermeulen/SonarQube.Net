@@ -39,7 +39,7 @@ namespace SonarQube.Net
 				[nameof(component)] = component,
 				[nameof(metricKeys)] = string.Join(",", metricKeys),
 				[nameof(additionalFields)] = additionalFields == null ? null : string.Join(",", additionalFields.Select(AvailableMeasureFieldsConverter.ToString)),
-				[nameof(asc)] = asc,
+				[nameof(asc)] = BooleanConverter.ToString(asc),
 				[nameof(metricPeriodSort)] = metricPeriodSort,
 				[nameof(metricSort)] = metricSort,
 				[nameof(metricSortFilter)] = metricSortFilter == null ? null : MetricSortFiltersConverter.ToString(metricSortFilter),
