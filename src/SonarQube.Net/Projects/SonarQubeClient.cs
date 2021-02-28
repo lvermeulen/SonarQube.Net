@@ -62,7 +62,7 @@ namespace SonarQube.Net
 			return await HandleResponseAsync<Project>(response).ConfigureAwait(false);
 		}
 
-		public async Task<IEnumerable<ProjectComponent>> SearchProjectsAsync(DateTime? analyzedBefore = null, bool? onProvisionedOnly = null, int? p = null, string[] projects = null, int? ps = null, string q = null, ProjectQualifiers[] qualifiers = null)
+		public async Task<IEnumerable<ProjectComponent>> SearchProjectsAsync(DateTime? analyzedBefore = null, bool? onProvisionedOnly = null, int? p = null, string[] projects = null, int? ps = null, string q = null, ProjectQualifiers[] qualifiers = null, string organization = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
@@ -73,6 +73,7 @@ namespace SonarQube.Net
 				[nameof(ps)] = ps,
 				[nameof(q)] = q,
 				[nameof(qualifiers)] = qualifiers == null ? null : string.Join(",", qualifiers.Select(ProjectQualifiersConverter.ToString)),
+				[nameof(organization)] = organization,
 			};
 
 			return await GetProjectsUrl("search")
