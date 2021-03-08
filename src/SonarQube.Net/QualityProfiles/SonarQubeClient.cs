@@ -349,14 +349,15 @@ namespace SonarQube.Net
 			return await HandleResponseAsync(response).ConfigureAwait(false);
 		}
 
-		public async Task<SearchQualityProfiles> SearchQualityProfilesAsync(bool? defaults = null, string language = null, string project = null, string qualityProfile = null)
+		public async Task<SearchQualityProfiles> SearchQualityProfilesAsync(bool? defaults = null, string language = null, string project = null, string qualityProfile = null, string organization = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(defaults)] = BooleanConverter.ToString(defaults),
 				[nameof(language)] = language,
 				[nameof(project)] = project,
-				[nameof(qualityProfile)] = qualityProfile
+				[nameof(qualityProfile)] = qualityProfile,
+				[nameof(organization)] = organization
 			};
 
 			return await GetQualityProfilesUrl("search")
