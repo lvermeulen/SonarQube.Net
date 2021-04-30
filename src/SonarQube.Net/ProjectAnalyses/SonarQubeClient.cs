@@ -60,8 +60,8 @@ namespace SonarQube.Net
 				[nameof(category)] = EventCategoriesConverter.ToString(category),
 				[nameof(p)] = p,
 				[nameof(ps)] = ps,
-				[nameof(from)] = DateTimeToStringConverter.ToString(from),
-				[nameof(to)] = DateTimeToStringConverter.ToString(to)
+				[nameof(from)] = DateTimeToStringConverter.ToString(from, "yyyy-MM-dd"),
+				[nameof(to)] = DateTimeToStringConverter.ToString(to, "yyyy-MM-dd")
 			};
 
 			return await GetProjectAnalysesUrl("search")
