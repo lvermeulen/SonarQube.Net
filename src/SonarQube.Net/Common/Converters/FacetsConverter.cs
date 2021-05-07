@@ -36,6 +36,6 @@ namespace SonarQube.Net.Common.Converters
 			[Facets.True] = "true"
 		};
 
-		public override string Description { get; } = "issue facet";
+		public override string Description => "issue facet";
 	}
 }

@@ -18,6 +18,6 @@ namespace SonarQube.Net.Common.Converters
 			[MeasureSortFields.Qualifier] = "qualifier"
 		};
 
-		public override string Description { get; } = "measure sort field";
+		public override string Description => "measure sort field";
 	}
 }

@@ -22,6 +22,6 @@ namespace SonarQube.Net.Common.Converters
 			[EventCategories.DefinitionChange] = "DEFINITION_CHANGE"
 		};
 
-		public override string Description { get; } = "event category";
+		public override string Description => "event category";
 	}
 }

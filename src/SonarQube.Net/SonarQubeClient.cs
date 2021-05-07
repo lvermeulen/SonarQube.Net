@@ -10,12 +10,17 @@ using Newtonsoft.Json.Serialization;
 using SonarQube.Net.Common;
 using SonarQube.Net.Common.Authentication;
 using SonarQube.Net.Common.Models;
+using NullValueHandling = Newtonsoft.Json.NullValueHandling;
 
 namespace SonarQube.Net
 {
 	public partial class SonarQubeClient
 	{
-		private static readonly ISerializer s_serializer = new NewtonsoftJsonSerializer(new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+		private static readonly ISerializer s_serializer = new NewtonsoftJsonSerializer(new JsonSerializerSettings
+		{
+			ContractResolver = new CamelCasePropertyNamesContractResolver(),
+			NullValueHandling = NullValueHandling.Ignore
+		});
 		private static readonly HttpContent s_emptyHttpContent = null;
 
 		private readonly Url _url;

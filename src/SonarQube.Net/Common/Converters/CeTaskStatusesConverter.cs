@@ -18,6 +18,6 @@ namespace SonarQube.Net.Common.Converters
 			[CeTaskStatuses.InProgress] = "IN_PROGRESS"
 		};
 
-		public override string Description { get; } = "ce task status";
+		public override string Description => "ce task status";
 	}
 }

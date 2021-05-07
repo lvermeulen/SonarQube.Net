@@ -18,7 +18,7 @@ namespace SonarQube.Net.Tests
 				return;
 			}
 
-			var result = await _client.GetRawSourcesAsync(firstResult.Key).ConfigureAwait(false);
+			string result = await _client.GetRawSourcesAsync(firstResult.Key).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 

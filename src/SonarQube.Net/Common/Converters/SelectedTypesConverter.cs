@@ -20,6 +20,6 @@ namespace SonarQube.Net.Common.Converters
 			[SelectedTypes.Selected] = "selected"
 		};
 
-		public override string Description { get; } = "selection type";
+		public override string Description => "selection type";
 	}
 }

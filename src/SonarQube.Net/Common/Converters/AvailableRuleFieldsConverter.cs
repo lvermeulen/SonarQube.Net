@@ -47,6 +47,6 @@ namespace SonarQube.Net.Common.Converters
 			[AvailableRuleFields.UpdatedAt] = "updatedAt"
 		};
 
-		public override string Description { get; } = "available rule field";
+		public override string Description => "available rule field";
 	}
 }

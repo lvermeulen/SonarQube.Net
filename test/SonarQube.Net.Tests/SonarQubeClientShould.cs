@@ -10,10 +10,12 @@ namespace SonarQube.Net.Tests
 
 		public SonarQubeClientShould()
 		{
-            var configurationUrl = $"http://localhost/{nameof(SonarQube)}.{nameof(SonarQube.Net)}.{nameof(SonarQube.Net.Tests)}";
-            var userName = "Hopefully uing a PAT";
-            var password = string.Empty;
-			_client = new SonarQubeClient(configurationUrl, new BasicAuthentication(userName, password));
+			var configuration = new ConfigurationBuilder()
+				.SetBasePath(Directory.GetCurrentDirectory())
+				.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+				.Build();
+
+			_client = new SonarQubeClient(configuration["url"], new BasicAuthentication(configuration["userName"], configuration["password"]));
 		}
 	}
 }

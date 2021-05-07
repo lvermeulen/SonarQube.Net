@@ -114,7 +114,7 @@ namespace SonarQube.Net
 			return await HandleResponseAsync(response).ConfigureAwait(false);
 		}
 
-		public async Task<IEnumerable<SelectedUser>> GetUserGroupUsersAsync(int? id = null, string name = null, int? p = null, int? ps = null, string q = null, SelectedTypes? selected = null)
+		public async Task<IEnumerable<SelectedUser>> GetUserGroupUsersAsync(string id = null, string name = null, int? p = null, int? ps = null, string q = null, SelectedTypes? selected = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
@@ -123,7 +123,7 @@ namespace SonarQube.Net
 				[nameof(p)] = p,
 				[nameof(ps)] = ps,
 				[nameof(q)] = q,
-				[nameof(selected)] = SelectedTypesConverter.ToString(selected),
+				[nameof(selected)] = SelectedTypesConverter.ToString(selected)
 			};
 
 			return await GetUserGroupsUrl("users")

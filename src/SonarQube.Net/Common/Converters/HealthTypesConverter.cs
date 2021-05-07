@@ -12,6 +12,6 @@ namespace SonarQube.Net.Common.Converters
 			[HealthTypes.Red] = "RED"
 		};
 
-		public override string Description { get; } = "health type";
+		public override string Description => "health type";
 	}
 }

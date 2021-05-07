@@ -5,7 +5,7 @@ namespace SonarQube.Net.Models
 {
 	public class QualityGateConditionRef
 	{
-		public int Id { get; set; }
+		public string Id { get; set; }
 		public string Metric { get; set; }
 
 		[JsonConverter(typeof(QualityGateConditionOperatorTypesConverter))]

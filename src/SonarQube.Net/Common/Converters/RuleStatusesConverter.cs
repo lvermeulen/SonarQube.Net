@@ -21,6 +21,6 @@ namespace SonarQube.Net.Common.Converters
 			[RuleStatuses.Removed] = "REMOVED"
 		};
 
-		public override string Description { get; } = "rule status";
+		public override string Description => "rule status";
 	}
 }

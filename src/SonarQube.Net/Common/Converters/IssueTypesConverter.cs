@@ -21,6 +21,6 @@ namespace SonarQube.Net.Common.Converters
 			[IssueTypes.SecurityHotspot] = "SECURITY_HOTSPOT"
 		};
 
-		public override string Description { get; } = "issue type";
+		public override string Description => "issue type";
 	}
 }

@@ -16,6 +16,6 @@ namespace SonarQube.Net.Common.Converters
 			[ProjectQualifiers.App] = "APP"
 		};
 
-		public override string Description { get; } = "project qualifier";
+		public override string Description => "project qualifier";
 	}
 }

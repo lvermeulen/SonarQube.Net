@@ -9,7 +9,7 @@ namespace SonarQube.Net.Tests
         [Fact]
         public async Task GetServerVersionAsync()
         {
-            var result = await _client.GetServerVersionAsync().ConfigureAwait(false);
+            string result = await _client.GetServerVersionAsync().ConfigureAwait(false);
             Assert.NotNull(result);
         }
     }

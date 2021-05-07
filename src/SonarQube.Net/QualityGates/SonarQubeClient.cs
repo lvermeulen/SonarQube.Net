@@ -128,12 +128,13 @@ namespace SonarQube.Net
 				.ConfigureAwait(false);
 		}
 
-		public async Task<QualityGatesList> GetQualityGatesListAsync(string organization = null)
+		public async Task<QualityGatesList> GetQualityGatesListAsync()
 		{
-			return await GetQualityGatesUrl("list")
-				.SetQueryParam(nameof(organization), organization)
+			var result = await GetQualityGatesUrl("list")
 				.GetJsonAsync<QualityGatesList>()
 				.ConfigureAwait(false);
+
+			return result;
 		}
 
 		public async Task<QualityGatesProjectStatus> GetQualityGatesProjectStatusAsync(string projectId = null, string projectKey = null, string analysisId = null, string branch = null, string pullRequest = null)
@@ -170,7 +171,7 @@ namespace SonarQube.Net
 			return await HandleResponseAsync(response).ConfigureAwait(false);
 		}
 
-		public async Task<IEnumerable<SelectedQualityGate>> SearchQualityGatesAsync(int gateId, string organization = null, int? page = null, int? pageSize = null, string query = null, SelectedTypes? selected = null)
+		public async Task<IEnumerable<SelectedQualityGate>> SearchQualityGatesAsync(string gateId, string organization = null, int? page = null, int? pageSize = null, string query = null, SelectedTypes? selected = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
@@ -222,19 +223,20 @@ namespace SonarQube.Net
 			return await HandleResponseAsync(response).ConfigureAwait(false);
 		}
 
-		public async Task<QualityGateRef> ShowQualityGateAsync(int? id = null, string name = null, string organization = null)
+		public async Task<QualityGateRef> ShowQualityGateAsync(string id = null, string name = null)
 		{
 			var queryParamValues = new Dictionary<string, object>
 			{
 				[nameof(id)] = id,
-				[nameof(name)] = name,
-				[nameof(organization)] = organization
+				[nameof(name)] = name
 			};
 
-			return await GetQualityGatesUrl("show")
+			var result = await GetQualityGatesUrl("show")
 				.SetQueryParams(queryParamValues)
 				.GetJsonAsync<QualityGateRef>()
 				.ConfigureAwait(false);
+
+			return result;
 		}
 
 		public async Task<bool> UpdateQualityGateConditionAsync(int error, int id, string metric, QualityGateConditionOperatorTypes? op = null, string organization = null)

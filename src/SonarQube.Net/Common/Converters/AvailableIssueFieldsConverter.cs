@@ -21,6 +21,6 @@ namespace SonarQube.Net.Common.Converters
 			[AvailableIssueFields.Users] = "users"
 		};
 
-		public override string Description { get; } = "available issue field";
+		public override string Description => "available issue field";
 	}
 }

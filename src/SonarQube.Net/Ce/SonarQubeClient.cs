@@ -28,7 +28,7 @@ namespace SonarQube.Net
 				[nameof(ps)] = ps,
 				[nameof(q)] = q,
 				[nameof(status)] = status == null ? null : string.Join(",", status.Select(CeTaskStatusesConverter.ToString)),
-				[nameof(type)] = type,
+				[nameof(type)] = type
 			};
 
 			return await GetCeUrl("activity")

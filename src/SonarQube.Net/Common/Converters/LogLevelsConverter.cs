@@ -16,6 +16,6 @@ namespace SonarQube.Net.Common.Converters
 			[LogLevels.Info] = "INFO"
 		};
 
-		public override string Description { get; } = "log level";
+		public override string Description => "log level";
 	}
 }

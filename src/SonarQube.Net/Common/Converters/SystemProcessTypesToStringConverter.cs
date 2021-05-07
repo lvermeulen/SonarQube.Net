@@ -21,6 +21,6 @@ namespace SonarQube.Net.Common.Converters
 			[SystemProcessTypes.Web] = "web"
 		};
 
-		public override string Description { get; } = "system process";
+		public override string Description => "system process";
 	}
 }

@@ -24,7 +24,7 @@ namespace SonarQube.Net
 				[nameof(onProvisionedOnly)] = onProvisionedOnly,
 				[nameof(projects)] = projects == null ? null : string.Join(",", projects),
 				[nameof(q)] = q,
-				[nameof(qualifiers)] = qualifiers == null ? null : string.Join(",", qualifiers.Select(ProjectQualifiersConverter.ToString)),
+				[nameof(qualifiers)] = qualifiers == null ? null : string.Join(",", qualifiers.Select(ProjectQualifiersConverter.ToString))
 			};
 
 			var response = await GetProjectsUrl("bulk_delete")
@@ -41,7 +41,7 @@ namespace SonarQube.Net
 			{
 				[nameof(name)] = name,
 				[nameof(project)] = project,
-				[nameof(visibility)] = ProjectVisibilitiesConverter.ToString(visibility),
+				[nameof(visibility)] = ProjectVisibilitiesConverter.ToString(visibility)
 			};
 
 			var response = await GetProjectsUrl("create")
@@ -73,7 +73,7 @@ namespace SonarQube.Net
 				[nameof(ps)] = ps,
 				[nameof(q)] = q,
 				[nameof(qualifiers)] = qualifiers == null ? null : string.Join(",", qualifiers.Select(ProjectQualifiersConverter.ToString)),
-				[nameof(organization)] = organization,
+				[nameof(organization)] = organization
 			};
 
 			return await GetProjectsUrl("search")

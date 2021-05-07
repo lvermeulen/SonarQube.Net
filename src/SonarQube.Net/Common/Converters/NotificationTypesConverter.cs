@@ -23,6 +23,6 @@ namespace SonarQube.Net.Common.Converters
 			[NotificationTypes.NewIssues] = "NewIssues"
 		};
 
-		public override string Description { get; } = "notification type";
+		public override string Description => "notification type";
 	}
 }

@@ -21,6 +21,6 @@ namespace SonarQube.Net.Common.Converters
 			[RuleSortFields.Key] = "key"
 		};
 
-		public override string Description { get; } = "rule sort field";
+		public override string Description => "rule sort field";
 	}
 }

@@ -13,6 +13,6 @@ namespace SonarQube.Net.Common.Converters
 			[PluginStatuses.DepsRequireSystemUpgrade] = "DEPS_REQUIRE_SYSTEM_UPGRADE"
 		};
 
-		public override string Description { get; } = "plugin status";
+		public override string Description => "plugin status";
 	}
 }

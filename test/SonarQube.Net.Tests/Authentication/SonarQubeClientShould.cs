@@ -9,7 +9,7 @@ namespace SonarQube.Net.Tests
         [Fact]
         public async Task ValidateCredentialsAsync()
         {
-            var result = await _client.ValidateCredentialsAsync().ConfigureAwait(false);
+            bool result = await _client.ValidateCredentialsAsync().ConfigureAwait(false);
             Assert.True(result);
         }
     }

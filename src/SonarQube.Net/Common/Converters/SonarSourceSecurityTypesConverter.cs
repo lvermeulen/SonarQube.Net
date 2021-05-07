@@ -33,6 +33,6 @@ namespace SonarQube.Net.Common.Converters
 			[SonarSourceSecurityTypes.Others] = "others"
 		};
 
-		public override string Description { get; } = "SonarSource security type";
+		public override string Description => "SonarSource security type";
 	}
 }

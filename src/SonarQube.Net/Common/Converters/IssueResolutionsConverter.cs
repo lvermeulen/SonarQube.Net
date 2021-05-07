@@ -17,6 +17,6 @@ namespace SonarQube.Net.Common.Converters
 			[IssueResolutions.Removed] = "REMOVED"
 		};
 
-		public override string Description { get; } = "issue resolution";
+		public override string Description => "issue resolution";
 	}
 }

@@ -24,6 +24,6 @@ namespace SonarQube.Net.Common.Converters
 			[BadgeMetricTypes.Vulnerabilities] = "vulnerabilities"
 		};
 
-		public override string Description { get; } = "badge metric type";
+		public override string Description => "badge metric type";
 	}
 }

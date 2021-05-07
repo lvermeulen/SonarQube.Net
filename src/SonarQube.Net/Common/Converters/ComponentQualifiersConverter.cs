@@ -22,6 +22,6 @@ namespace SonarQube.Net.Common.Converters
 			[ComponentQualifiers.Uts] = "UTS"
 		};
 
-		public override string Description { get; } = "component qualifier";
+		public override string Description => "component qualifier";
 	}
 }

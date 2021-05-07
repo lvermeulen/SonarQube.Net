@@ -23,6 +23,6 @@ namespace SonarQube.Net.Common.Converters
 			[OwaspTop10Types.A10] = "a10"
 		};
 
-		public override string Description { get; } = "owasp top 10 type";
+		public override string Description => "owasp top 10 type";
 	}
 }

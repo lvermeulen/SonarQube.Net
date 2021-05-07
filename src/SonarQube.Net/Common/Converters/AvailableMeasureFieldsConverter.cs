@@ -16,6 +16,6 @@ namespace SonarQube.Net.Common.Converters
 			[AvailableMeasureFields.Periods] = "periods"
 		};
 
-		public override string Description { get; } = "available measure field";
+		public override string Description => "available measure field";
 	}
 }

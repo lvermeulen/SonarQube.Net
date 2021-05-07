@@ -4,7 +4,7 @@ namespace SonarQube.Net.Models
 {
 	public class QualityGateRef
 	{
-		public int Id { get; set; }
+		public string Id { get; set; }
 		public string Name { get; set; }
 		public IEnumerable<QualityGateConditionRef> Conditions { get; set; }
 		public bool? IsBuiltIn { get; set; }

@@ -66,7 +66,7 @@ namespace SonarQube.Net
 				[nameof(from)] = DateTimeToStringConverter.ToString(from),
 				[nameof(to)] = DateTimeToStringConverter.ToString(to),
 				[nameof(p)] = p,
-				[nameof(ps)] = ps,
+				[nameof(ps)] = ps
 			};
 
 			return await GetMeasuresUrl("search_history")

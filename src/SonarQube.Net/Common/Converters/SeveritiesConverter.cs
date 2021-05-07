@@ -22,6 +22,6 @@ namespace SonarQube.Net.Common.Converters
 			[Severities.Blocker] = "BLOCKER"
 		};
 
-		public override string Description { get; } = "issue severity";
+		public override string Description => "issue severity";
 	}
 }

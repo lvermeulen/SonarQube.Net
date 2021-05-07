@@ -19,6 +19,6 @@ namespace SonarQube.Net.Common.Converters
 			[MetricSortFilters.WithMeasuresOnly] = "withMeasuresOnly"
 		};
 
-		public override string Description { get; } = "metric sort filter";
+		public override string Description => "metric sort filter";
 	}
 }

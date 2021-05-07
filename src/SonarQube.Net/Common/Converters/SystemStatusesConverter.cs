@@ -15,6 +15,6 @@ namespace SonarQube.Net.Common.Converters
 			[SystemStatuses.DbMigrationRunning] = "DB_MIGRATION_RUNNING"
 		};
 
-		public override string Description { get; } = "system status";
+		public override string Description => "system status";
 	}
 }

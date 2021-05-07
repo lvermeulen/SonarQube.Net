@@ -26,7 +26,7 @@ namespace SonarQube.Net.Common.Converters
 			}
 
 			var types = new[] { typeof(T1), typeof(T2), typeof(T3), typeof(T4) };
-			var values = new string[maxCount];
+			string[] values = new string[maxCount];
 			for (int i = 0; i < children.Count; i++)
 			{
 				var child = children[i];

@@ -20,6 +20,6 @@ namespace SonarQube.Net.Common.Converters
 			[MeasureSearchStrategies.Leaves] = "leaves"
 		};
 
-		public override string Description { get; } = "measure search strategy";
+		public override string Description => "measure search strategy";
 	}
 }

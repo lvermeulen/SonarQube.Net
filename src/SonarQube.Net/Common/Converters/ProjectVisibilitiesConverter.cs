@@ -17,6 +17,6 @@ namespace SonarQube.Net.Common.Converters
 			[ProjectVisibilities.Public] = "public"
 		};
 
-		public override string Description { get; } = "project visibility";
+		public override string Description => "project visibility";
 	}
 }

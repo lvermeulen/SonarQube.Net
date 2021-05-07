@@ -18,6 +18,6 @@ namespace SonarQube.Net.Common.Converters
 			[IssueStatuses.Closed] = "CLOSED"
 		};
 
-		public override string Description { get; } = "issue status";
+		public override string Description => "issue status";
 	}
 }

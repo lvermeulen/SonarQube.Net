@@ -13,13 +13,13 @@ namespace SonarQube.Net.Common.Converters
 			? ToString(value.Value)
 			: null;
 
-		public override Dictionary<RemediationFunctionTypes, string> Map { get; } = new Dictionary<RemediationFunctionTypes, string>()
+		public override Dictionary<RemediationFunctionTypes, string> Map { get; } = new Dictionary<RemediationFunctionTypes, string>
 		{
 			[RemediationFunctionTypes.Linear] = "LINEAR",
 			[RemediationFunctionTypes.LinearOffset] = "LINEAR_OFFSET",
 			[RemediationFunctionTypes.ConstantIssue] = "CONSTANT_ISSUE"
 		};
 
-		public override string Description { get; } = "remediation function type";
+		public override string Description => "remediation function type";
 	}
 }

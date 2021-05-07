@@ -23,14 +23,14 @@ namespace SonarQube.Net.Tests
 		[Fact]
 		public async Task GetSystemLogsAsync()
 		{
-			var result = await _client.GetSystemLogsAsync().ConfigureAwait(false);
+			string result = await _client.GetSystemLogsAsync().ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 
 		[Fact]
 		public async Task GetSystemPingAsync()
 		{
-			var result = await _client.GetSystemPingAsync().ConfigureAwait(false);
+			string result = await _client.GetSystemPingAsync().ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
 

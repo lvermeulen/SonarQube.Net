@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using SonarQube.Net.Models;
-
-namespace SonarQube.Net.Common.Converters
+﻿namespace SonarQube.Net.Common.Converters
 {
 	public static class BooleanConverter
 	{

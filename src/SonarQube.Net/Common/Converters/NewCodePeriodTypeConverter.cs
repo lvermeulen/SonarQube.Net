@@ -9,9 +9,9 @@ namespace SonarQube.Net.Common.Converters
 		{
 			[NewCodePeriodTypes.SpecificAnalysis] = "SPECIFIC_ANALYSIS",
 			[NewCodePeriodTypes.PreviousVersion] = "PREVIOUS_VERSION",
-			[NewCodePeriodTypes.NumberOfDays] = "NUMBER_OF_DAYS",
+			[NewCodePeriodTypes.NumberOfDays] = "NUMBER_OF_DAYS"
 		};
 
-		public override string Description { get; } = "new code period type";
+		public override string Description => "new code period type";
 	}
 }

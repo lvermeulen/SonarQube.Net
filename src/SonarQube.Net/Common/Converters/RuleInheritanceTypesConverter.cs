@@ -20,6 +20,6 @@ namespace SonarQube.Net.Common.Converters
 			[RuleInheritanceTypes.Overrides] = "OVERRIDES"
 		};
 
-		public override string Description { get; } = "rule inheritance type";
+		public override string Description => "rule inheritance type";
 	}
 }

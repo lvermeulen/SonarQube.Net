@@ -21,6 +21,6 @@ namespace SonarQube.Net.Common.Converters
 			[QualityProfileExporterKeys.RoslynCs] = "roslyn - cs"
 		};
 
-		public override string Description { get; } = "quality profile exporter key";
+		public override string Description => "quality profile exporter key";
 	}
 }

@@ -10,6 +10,6 @@ namespace SonarQube.Net.Common.Converters
 			[RuleScopes.Main] = "MAIN"
 		};
 
-		public override string Description { get; } = "rule scope";
+		public override string Description => "rule scope";
 	}
 }

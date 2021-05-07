@@ -15,6 +15,6 @@ namespace SonarQube.Net.Common.Converters
 			[DbMigrationStatuses.MigrationRequired] = "MIGRATION_REQUIRED"
 		};
 
-		public override string Description { get; } = "db migration status";
+		public override string Description => "db migration status";
 	}
 }

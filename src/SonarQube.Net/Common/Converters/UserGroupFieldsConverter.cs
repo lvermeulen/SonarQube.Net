@@ -20,6 +20,6 @@ namespace SonarQube.Net.Common.Converters
 			[UserGroupFields.MembersCount] = "membersCount"
 		};
 
-		public override string Description { get; } = "user group field";
+		public override string Description => "user group field";
 	}
 }

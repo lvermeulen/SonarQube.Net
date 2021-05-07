@@ -16,6 +16,6 @@ namespace SonarQube.Net.Common.Converters
 			[SansTop25Types.PorousDefenses] = "porous-defenses"
 		};
 
-		public override string Description { get; } = "sans top 25 type";
+		public override string Description => "sans top 25 type";
 	}
 }

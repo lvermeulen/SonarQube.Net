@@ -20,6 +20,6 @@ namespace SonarQube.Net.Common.Converters
 			[ComponentTreeStrategies.Leaves] = "leaves"
 		};
 
-		public override string Description { get; } = "component tree strategy";
+		public override string Description => "component tree strategy";
 	}
 }

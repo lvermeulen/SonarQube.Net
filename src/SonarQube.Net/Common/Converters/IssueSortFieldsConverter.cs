@@ -21,6 +21,6 @@ namespace SonarQube.Net.Common.Converters
 			[IssueSortFields.Hotspots] = "HOTSPOTS"
 		};
 
-		public override string Description { get; } = "issue sort field";
+		public override string Description => "issue sort field";
 	}
 }

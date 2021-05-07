@@ -19,6 +19,6 @@ namespace SonarQube.Net.Common.Converters
 			[QualityGateConditionOperatorTypes.GreaterThan] = "GT"
 		};
 
-		public override string Description { get; } = "quality gate condition operator type";
+		public override string Description => "quality gate condition operator type";
 	}
 }

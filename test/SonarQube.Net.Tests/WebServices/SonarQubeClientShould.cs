@@ -24,7 +24,7 @@ namespace SonarQube.Net.Tests
 				return;
 			}
 
-			var action = firstResult.Actions.FirstOrDefault(x => !x.Post)?.Key;
+			string action = firstResult.Actions.FirstOrDefault(x => !x.Post)?.Key;
 			var result = await _client.GetWebServiceResponseExampleAsync(action, firstResult.Path).ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
