@@ -48,9 +48,9 @@ namespace SonarQube.Net
 				[nameof(values)] = values
 			};
 
+			//sending data as application/x-www-form-urlencoded in order to support large values arrays
 			var response = await GetSettingsUrl("set")
-				.SetQueryParams(queryParamValues)
-				.PostAsync(s_emptyHttpContent)
+				.PostUrlEncodedAsync(queryParamValues)
 				.ConfigureAwait(false);
 
 			return await HandleResponseAsync(response).ConfigureAwait(false);
