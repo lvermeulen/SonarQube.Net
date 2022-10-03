@@ -11,7 +11,7 @@ namespace SonarQube.Net.Common.Converters
 
 		public override Dictionary<AvailableMeasureFields, string> Map { get; } = new Dictionary<AvailableMeasureFields, string>
 		{
-			[AvailableMeasureFields.Metrics] = "metricss",
+			[AvailableMeasureFields.Metrics] = "metrics",
 			[AvailableMeasureFields.Period] = "period",
 			[AvailableMeasureFields.Periods] = "periods"
 		};
