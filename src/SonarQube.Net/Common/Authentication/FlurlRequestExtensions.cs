@@ -1,4 +1,5 @@
 ﻿using System;
+using Flurl;
 using Flurl.Http;
 
 namespace SonarQube.Net.Common.Authentication
@@ -7,13 +8,15 @@ namespace SonarQube.Net.Common.Authentication
 	{
 		public static IFlurlRequest WithAuthentication(this IFlurlRequest request, AuthenticationMethod auth)
 		{
-			if (auth.GetType() == typeof(BasicAuthentication))
+			switch (auth)
 			{
-				var basic = (BasicAuthentication)auth;
-				return request.WithBasicAuth(basic.UserName, basic.Password);
+				case BasicAuthentication basic:
+					return request.WithBasicAuth(basic.UserName, basic.Password);
+				case BearerAuthentication bearer:
+					return request.WithHeader("Authorization", $"Bearer {bearer.Token}");
+				default:
+					throw new InvalidOperationException("Unknown authentication method");
 			}
-
-			throw new InvalidOperationException("Unknown authentication method");
 		}
 	}
 }
